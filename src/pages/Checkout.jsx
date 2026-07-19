@@ -18,6 +18,9 @@ import { PiCreditCardDuotone } from "react-icons/pi";
 import { SiMastercard } from "react-icons/si";
 import { useNavigate } from "react-router-dom";
 import { useCartStore } from "../store/CartStore"; // <- important
+import confirm from "../assets/confirmed.svg";
+import { IoCheckbox } from "react-icons/io5";
+import { MdCheckBoxOutlineBlank } from "react-icons/md";
 
 const Checkout = () => {
   const navigate = useNavigate();
@@ -31,6 +34,7 @@ const Checkout = () => {
   const subtotal = Number(getTotalPrice?.() || 0);
 
   const [showOrderPopup, setShowOrderPopup] = useState(false);
+  const [rememberCard, setRememberCard] = useState(false);
 
   const [form, setForm] = useState({
     lastName: "",
@@ -47,7 +51,8 @@ const Checkout = () => {
     setForm((prev) => ({ ...prev, [field]: e.target.value }));
   };
 
-  const isFormValid = Object.values(form).every((value) => value.trim() !== "");
+  const isFormValid =
+    Object.values(form).every((value) => value.trim() !== "") && rememberCard;
 
   const formatCurrency = (value) => {
     const num = Number(value) || 0;
@@ -81,22 +86,7 @@ const Checkout = () => {
           <div className="bg-white rounded-2xl w-full max-w-[320px] p-6 sm:p-8 text-center shadow-xl">
             <div className="relative w-24 h-24 mx-auto mb-4">
               <div className="absolute inset-0 bg-[#FF6636] rounded-[60%_40%_30%_70%/60%_30%_70%_40%] flex items-center justify-center">
-                <svg
-                  viewBox="0 0 48 48"
-                  className="w-11 h-11 -rotate-12"
-                  fill="none"
-                  stroke="white"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M24 4c5 4 7 10 7 16 0 5-2 9-7 13-5-4-7-8-7-13 0-6 2-12 7-16Z" />
-                  <circle cx="24" cy="17" r="2.6" />
-                  <path d="M17 24c-4 1-6 4-7 9 5-1 8-3 9-7" />
-                  <path d="M31 24c4 1 6 4 7 9-5-1-8-3-9-7" />
-                  <path d="M20 33l-2 6 4-2" />
-                  <path d="M28 33l2 6-4-2" />
-                </svg>
+                <img src={confirm} alt="" />
               </div>
               <span className="absolute -top-1 left-1 text-white text-[10px]">
                 ✦
@@ -112,12 +102,25 @@ const Checkout = () => {
               </span>
             </div>
 
-            <h3 className="text-[16px] sm:text-[18px] font-semibold text-[#1D2026] leading-snug">
+            <h3 className="text-[16px] sm:text-[18px] font-medium text-[#1D2026] leading-snug">
               Your order has been received
             </h3>
 
             <button
-              onClick={() => setShowOrderPopup(false)}
+              onClick={() => {
+                setForm({
+                  lastName: "",
+                  firstName: "",
+                  phoneNumber: "",
+                  email: "",
+                  cardName: "",
+                  cardNumber: "",
+                  expiry: "",
+                  cvc: "",
+                });
+                setRememberCard(false);
+                setShowOrderPopup(false);
+              }}
               className="mt-6 w-full h-11 sm:h-12 bg-[#FF6636] text-white rounded-lg text-[14px] sm:text-[15px] font-medium"
             >
               Purchase History
@@ -165,30 +168,41 @@ const Checkout = () => {
             <h5 className="font-semibold text-[20px] sm:text-[24px] lg:text-[28px] xl:text-[32px] text-[#1D2026]">
               Contact Information
             </h5>
-
             <div className="flex flex-col sm:flex-row mt-4 sm:mt-5 lg:mt-5.5 xl:mt-6 gap-3 sm:gap-3 xl:gap-3.5">
-              <div className="flex-1">
-                <p className="text-[12px] sm:text-[13px] lg:text-[13.5px] xl:text-[14px] font-normal text-[#1D2026]">
-                  Last Name
-                </p>
-                <input
-                  type="text"
-                  placeholder="First name"
-                  value={form.lastName}
-                  onChange={handleFieldChange("lastName")}
-                  className="w-full mt-1.5 border-[0.53px] h-10 sm:h-10 lg:h-11 xl:h-12 rounded-md border-[#E9EAF0] placeholder:text-[#8C94A3] text-[13px] sm:text-[14px] lg:text-[15px] xl:text-[16px] p-2 sm:p-3 xl:p-4 outline-none"
-                />
-              </div>
-
               <div className="flex-1">
                 <p className="text-[12px] sm:text-[13px] lg:text-[13.5px] xl:text-[14px] font-normal text-[#1D2026]">
                   First Name
                 </p>
                 <input
                   type="text"
-                  placeholder="First name"
+                  placeholder="First Name"
                   value={form.firstName}
-                  onChange={handleFieldChange("firstName")}
+                  onChange={(e) => {
+                    const lettersOnly = e.target.value.replace(
+                      /[^a-zA-Z\s]/g,
+                      "",
+                    );
+                    setForm((prev) => ({ ...prev, firstName: lettersOnly }));
+                  }}
+                  className="w-full mt-1.5 border-[0.53px] h-10 sm:h-10 lg:h-11 xl:h-12 rounded-md border-[#E9EAF0] placeholder:text-[#8C94A3] text-[13px] sm:text-[14px] lg:text-[15px] xl:text-[16px] p-2 sm:p-3 xl:p-4 outline-none"
+                />
+              </div>
+
+              <div className="flex-1">
+                <p className="text-[12px] sm:text-[13px] lg:text-[13.5px] xl:text-[14px] font-normal text-[#1D2026]">
+                  Last Name
+                </p>
+                <input
+                  type="text"
+                  placeholder="Last Name"
+                  value={form.lastName}
+                  onChange={(e) => {
+                    const lettersOnly = e.target.value.replace(
+                      /[^a-zA-Z\s]/g,
+                      "",
+                    );
+                    setForm((prev) => ({ ...prev, lastName: lettersOnly }));
+                  }}
                   className="w-full mt-1.5 border-[0.53px] h-10 sm:h-10 lg:h-11 xl:h-12 rounded-md border-[#E9EAF0] placeholder:text-[#8C94A3] text-[13px] sm:text-[14px] lg:text-[15px] xl:text-[16px] p-2 sm:p-3 xl:p-4 outline-none"
                 />
               </div>
@@ -203,7 +217,13 @@ const Checkout = () => {
                   type="text"
                   placeholder="Phone Number"
                   value={form.phoneNumber}
-                  onChange={handleFieldChange("phoneNumber")}
+                  onChange={(e) => {
+                    const numbersOnly = e.target.value
+                      .replace(/[^0-9]/g, "")
+                      .slice(0, 11);
+                    setForm((prev) => ({ ...prev, phoneNumber: numbersOnly }));
+                  }}
+                  maxLength={11}
                   className="w-full mt-1.5 border-[0.53px] h-10 sm:h-10 lg:h-11 xl:h-12 rounded-md border-[#E9EAF0] placeholder:text-[#8C94A3] text-[13px] sm:text-[14px] lg:text-[15px] xl:text-[16px] p-2 sm:p-3 xl:p-4 outline-none"
                 />
               </div>
@@ -213,7 +233,7 @@ const Checkout = () => {
                   Email Address
                 </p>
                 <input
-                  type="text"
+                  type="email"
                   placeholder="Email"
                   value={form.email}
                   onChange={handleFieldChange("email")}
@@ -265,11 +285,16 @@ const Checkout = () => {
                 type="text"
                 placeholder="Name on card"
                 value={form.cardName}
-                onChange={handleFieldChange("cardName")}
+                onChange={(e) => {
+                  const lettersOnly = e.target.value.replace(
+                    /[^a-zA-Z\s]/g,
+                    "",
+                  );
+                  setForm((prev) => ({ ...prev, cardName: lettersOnly }));
+                }}
                 className="w-full h-10 lg:h-11 xl:h-12 p-2 sm:p-3 xl:p-4 border border-[#E9EAF0] placeholder:text-[#8C94A3] text-[13px] sm:text-[14px] lg:text-[15px] xl:text-[16px] font-normal rounded-lg mt-1.5 outline-none"
               />
             </div>
-
             <div className="mt-3 sm:mt-4">
               <h5 className="text-[12px] sm:text-[13px] lg:text-[13.5px] xl:text-[14px] font-normal text-[#1D2026]">
                 Card Number
@@ -281,7 +306,14 @@ const Checkout = () => {
                   type="text"
                   placeholder="Label"
                   value={form.cardNumber}
-                  onChange={handleFieldChange("cardNumber")}
+                  onChange={(e) => {
+                    const digits = e.target.value
+                      .replace(/[^0-9]/g, "")
+                      .slice(0, 19);
+                    const grouped = digits.replace(/(.{4})/g, "$1 ").trim();
+                    setForm((prev) => ({ ...prev, cardNumber: grouped }));
+                  }}
+                  maxLength={23}
                   className="flex-1 placeholder:text-[#8C94A3] text-[13px] sm:text-[14px] lg:text-[15px] xl:text-[16px] font-normal pl-2 sm:pl-4 xl:pl-5 outline-none"
                 />
               </div>
@@ -296,7 +328,26 @@ const Checkout = () => {
                   type="text"
                   placeholder="MM / YY"
                   value={form.expiry}
-                  onChange={handleFieldChange("expiry")}
+                  onChange={(e) => {
+                    let digits = e.target.value
+                      .replace(/[^0-9]/g, "")
+                      .slice(0, 4);
+
+                    if (digits.length >= 2) {
+                      let month = digits.slice(0, 2);
+                      if (Number(month) > 12) month = "12";
+                      if (month === "00") month = "01";
+                      digits = month + digits.slice(2);
+                    }
+
+                    const formatted =
+                      digits.length > 2
+                        ? `${digits.slice(0, 2)}/${digits.slice(2)}`
+                        : digits;
+
+                    setForm((prev) => ({ ...prev, expiry: formatted }));
+                  }}
+                  maxLength={5}
                   className="w-full p-2.5 sm:p-3 xl:p-3.5 h-10 lg:h-11 xl:h-12 rounded-lg border border-[#E9EAF0] placeholder:text-[#8C94A3] text-[13px] sm:text-[14px] lg:text-[15px] xl:text-[16px] mt-2 outline-none"
                 />
               </div>
@@ -309,14 +360,27 @@ const Checkout = () => {
                   type="text"
                   placeholder="Security Code"
                   value={form.cvc}
-                  onChange={handleFieldChange("cvc")}
+                  onChange={(e) => {
+                    const digitsOnly = e.target.value
+                      .replace(/[^0-9]/g, "")
+                      .slice(0, 4);
+                    setForm((prev) => ({ ...prev, cvc: digitsOnly }));
+                  }}
+                  maxLength={4}
                   className="w-full p-2.5 sm:p-3 xl:p-3.5 h-10 lg:h-11 xl:h-12 rounded-lg border border-[#E9EAF0] placeholder:text-[#8C94A3] text-[13px] sm:text-[14px] lg:text-[15px] xl:text-[16px] mt-2 outline-none"
                 />
               </div>
             </div>
 
-            <div className="flex items-start mt-3 sm:mt-4 xl:mt-5 gap-2 xl:gap-2.5">
-              <IoIosCheckboxOutline className="w-4 h-4 sm:w-[18px] sm:h-[18px] lg:w-5 lg:h-5 xl:w-[22px] xl:h-[22px] shrink-0" />
+            <div
+              onClick={() => setRememberCard((prev) => !prev)}
+              className="flex items-start mt-3 sm:mt-4 xl:mt-5 gap-2 xl:gap-2.5 cursor-pointer"
+            >
+              {rememberCard ? (
+                <IoCheckbox className="w-4 h-4 sm:w-[18px] sm:h-[18px] lg:w-5 lg:h-5 xl:w-[22px] xl:h-[22px] shrink-0 text-[#FF6636]" />
+              ) : (
+                <MdCheckBoxOutlineBlank className="w-4 h-4 sm:w-[18px] sm:h-[18px] lg:w-5 lg:h-5 xl:w-[22px] xl:h-[22px] shrink-0 text-[#1D2026]" />
+              )}
 
               <p className="text-[11px] sm:text-[12px] lg:text-[13px] xl:text-[14px] font-normal text-[#4E5566]">
                 Remember this card, save it on my card list
@@ -347,11 +411,11 @@ const Checkout = () => {
                         <img
                           src={item.image || (index % 2 === 0 ? ux : crime)}
                           alt={item.name || "Product"}
-                          className="w-[70px] h-[70px] sm:w-[84px] sm:h-[102px] lg:w-[92px] lg:h-[112px] xl:w-[100px] xl:h-[122px] object-cover rounded shrink-0"
+                          className="w-[70px] h-[70px] sm:w-[84px] sm:h-[102px] lg:w-[92px] lg:h-28 xl:w-[100px] xl:h-[122px] object-cover rounded shrink-0"
                         />
 
                         <div className="flex flex-col mt-2 min-w-0 ml-3">
-                          <p className="font-medium text-[12px] sm:text-[13px] xl:text-[14px] text-[#1C1C1C] break-words">
+                          <p className="font-medium text-[12px] sm:text-[13px] xl:text-[14px] text-[#1C1C1C] wrap-break-word">
                             {item.name}
                           </p>
                           <p className="font-normal text-[10px] sm:text-[11px] xl:text-[12px] text-[#73768A]">
