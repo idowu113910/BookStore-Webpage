@@ -28,15 +28,8 @@ const BookList = () => {
   const navigate = useNavigate();
   const addToCart = useCartStore((state) => state.addToCart);
 
-<<<<<<< HEAD
   const handleAddToCart = (item) => {
     if (!item || !item.id) return;
-=======
-  // helper to add an item (ensures a quantity) then navigate to checkout
-  const handleAddToCart = (item) => {
-    if (!item || !item.id) return;
-    // ensure we pass only the fields the cart needs; include quantity
->>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
     const cartItem = {
       id: item.id,
       name: item.title || item.name || "Untitled",
@@ -46,10 +39,6 @@ const BookList = () => {
       author: item.instructor || item.author || "",
     };
     addToCart(cartItem);
-<<<<<<< HEAD
-=======
-    // navigate user to checkout (keeps previous behavior). Remove this line if you prefer staying on page.
->>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
     navigate("/cart");
   };
 
@@ -188,51 +177,29 @@ const BookList = () => {
   ];
 
   const formatPrice = (v) =>
-<<<<<<< HEAD
     `₦${Number(v || 0).toLocaleString(undefined, { minimumFractionDigits: 0 })}`;
 
   const { query } = useSearch();
-=======
-    `₦${Number(v || 0).toLocaleString(undefined, {
-      minimumFractionDigits: 0,
-    })}`;
-
-  // =====
-  const { query } = useSearch();
-
->>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
   const isSingleLetter = (str) => /^[a-zA-Z]$/.test(str.trim());
 
   const filteredBooks = (() => {
     const q = (query || "").trim();
-<<<<<<< HEAD
     if (!q) return books;
     if (isSingleLetter(q)) {
       return books.filter((b) =>
         b.title.toLowerCase().startsWith(q.toLowerCase()),
-=======
-    if (!q) return books; // show all if empty
-    if (isSingleLetter(q)) {
-      return books.filter((b) =>
-        b.title.toLowerCase().startsWith(q.toLowerCase())
->>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
       );
     }
     const lower = q.toLowerCase();
     return books.filter(
       (b) =>
         b.title.toLowerCase().includes(lower) ||
-<<<<<<< HEAD
         (b.instructor || "").toLowerCase().includes(lower),
-=======
-        (b.instructor || "").toLowerCase().includes(lower)
->>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
     );
   })();
 
   return (
     <>
-<<<<<<< HEAD
       <div className="hidden min-[1025px]:block mt-32 lg:mt-40 xl:mt-48 md:-mt-900">
         <div className="flex items-center gap-6 lg:gap-9 mt-10  lg:mt-14 px-8 lg:px-14 xl:px-20">
           <div className="flex-1 border-t border-[#1D2026]" />
@@ -244,23 +211,11 @@ const BookList = () => {
 
         <div className="w-full max-w-[900px] lg:max-w-[1000px] xl:max-w-[1112px] h-auto mx-auto mt-6 lg:mt-8 px-4">
           <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-7 xl:gap-8">
-=======
-      <div className="md:block hidden mt-48">
-        <div className="flex items-center gap-9 mt-14 px-20">
-          <div className="flex-1 border-t border-[#1D2026]" />
-          <p className="text-[#1D2026] text-[24px] font-medium">Best Seller</p>
-          <div className="flex-1 border-t border-[#1D2026]" />
-        </div>
-
-        <div className="w-full max-w-[1112px] h-auto mx-auto mt-8">
-          <div className="grid grid-cols-4 gap-8">
->>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
             {filteredBooks.map((book) => (
               <article key={book.id} className="w-full">
                 <img
                   src={book.image}
                   alt={book.title}
-<<<<<<< HEAD
                   className="w-full aspect-[233/284] object-cover"
                 />
 
@@ -275,22 +230,11 @@ const BookList = () => {
                       className="w-4 h-4 lg:w-5 lg:h-5"
                     />
                     <p className="text-[13px] lg:text-[14px] font-normal text-[#73768A]">
-=======
-                  className="w-[233px] h-[284px] object-cover"
-                />
-
-                <div className="flex justify-between mt-3 w-[233px]">
-                  <p className="text-[16px] font-medium flex-1">{book.title}</p>
-                  <div className="flex gap-1 items-center">
-                    <img src={star} alt="rating star" className="w-5 h-5" />
-                    <p className="text-[14px] font-normal text-[#73768A]">
->>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
                       {book.rating}
                     </p>
                   </div>
                 </div>
 
-<<<<<<< HEAD
                 <p className="mt-1 text-[#73768A] font-normal text-[13px] lg:text-[14px]">
                   {book.instructor}
                 </p>
@@ -303,47 +247,21 @@ const BookList = () => {
                   <button
                     onClick={() => handleAddToCart(book)}
                     className="bg-[#FF6636] w-[140px] lg:w-[155px] xl:w-[169px] h-9 lg:h-10 rounded-lg text-white font-medium text-[14px] lg:text-[16px]"
-=======
-                <p className="mt-1 text-[#73768A] font-normal text-[14px]">
-                  {book.instructor}
-                </p>
-
-                <p className="mt-3 text-[24px] font-medium text-[#1C1C1C]">
-                  {formatPrice(book.price)}
-                </p>
-
-                <div className="flex w-[233px] mt-3 justify-between items-center">
-                  <button
-                    onClick={() => handleAddToCart(book)}
-                    className="bg-[#FF6636] w-[169px] h-[40px] rounded-[8px] text-white font-medium text-[16px]"
->>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
                     aria-label={`Add ${book.title} to cart`}
                   >
                     Add To Cart
                   </button>
 
                   <button
-<<<<<<< HEAD
                     onClick={() =>
                       console.log(`favorite toggled for ${book.title}`)
-=======
-                    onClick={
-                      () =>
-                        console.log(
-                          `favorite toggled for ${book.title}`
-                        ) /* placeholder */
->>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
                     }
                     aria-label={`Add ${book.title} to favorites`}
                   >
                     <img
                       src={love}
                       alt="Add to favorites"
-<<<<<<< HEAD
                       className="w-10 h-8 lg:w-12 lg:h-10"
-=======
-                      className="w-[48px] h-[40px]"
->>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
                     />
                   </button>
                 </div>
@@ -352,33 +270,21 @@ const BookList = () => {
           </div>
         </div>
 
-<<<<<<< HEAD
         <div className="flex items-center gap-6 lg:gap-9 mt-6 px-8 lg:px-14 xl:px-20">
           <div className="flex-1 border-t border-[#1D2026]" />
           <p className="text-[#1D2026] text-[18px] lg:text-[22px] xl:text-[24px] font-medium whitespace-nowrap">
-=======
-        <div className="flex items-center gap-9 mt-6 px-20">
-          <div className="flex-1 border-t border-[#1D2026]" />
-          <p className="text-[#1D2026] text-[24px] font-medium">
->>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
             Editor's Pick
           </p>
           <div className="flex-1 border-t border-[#1D2026]" />
         </div>
 
-<<<<<<< HEAD
         <div className="w-full max-w-[900px] lg:max-w-[1000px] xl:max-w-[1112px] h-auto mx-auto mt-6 lg:mt-8 px-4">
           <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-7 xl:gap-8">
-=======
-        <div className="w-full max-w-[1112px] h-auto mx-auto mt-8">
-          <div className="grid grid-cols-4 gap-8">
->>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
             {filteredBooks.map((editor) => (
               <article key={editor.id} className="w-full">
                 <img
                   src={editor.image}
                   alt={editor.title}
-<<<<<<< HEAD
                   className="w-full aspect-[233/284] object-cover"
                 />
 
@@ -393,24 +299,11 @@ const BookList = () => {
                       className="w-4 h-4 lg:w-5 lg:h-5"
                     />
                     <p className="text-[13px] lg:text-[14px] font-normal text-[#73768A]">
-=======
-                  className="w-[233px] h-[284px] object-cover"
-                />
-
-                <div className="flex justify-between mt-3 w-[233px]">
-                  <p className="text-[16px] font-medium flex-1">
-                    {editor.title}
-                  </p>
-                  <div className="flex gap-1 items-center">
-                    <img src={star} alt="rating star" className="w-5 h-5" />
-                    <p className="text-[14px] font-normal text-[#73768A]">
->>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
                       {editor.rating}
                     </p>
                   </div>
                 </div>
 
-<<<<<<< HEAD
                 <p className="mt-1 text-[#73768A] font-normal text-[13px] lg:text-[14px]">
                   {editor.instructor}
                 </p>
@@ -423,47 +316,21 @@ const BookList = () => {
                   <button
                     onClick={() => handleAddToCart(editor)}
                     className="bg-[#FF6636] w-[140px] lg:w-[155px] xl:w-[169px] h-9 lg:h-10 rounded-lg text-white font-medium text-[14px] lg:text-[16px]"
-=======
-                <p className="mt-1 text-[#73768A] font-normal text-[14px]">
-                  {editor.instructor}
-                </p>
-
-                <p className="mt-3 text-[24px] font-medium text-[#1C1C1C]">
-                  {formatPrice(editor.price)}
-                </p>
-
-                <div className="flex w-[233px] mt-3 justify-between items-center">
-                  <button
-                    onClick={() => handleAddToCart(editor)}
-                    className="bg-[#FF6636] w-[169px] h-[40px] rounded-[8px] text-white font-medium text-[16px]"
->>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
                     aria-label={`Add ${editor.title} to cart`}
                   >
                     Add To Cart
                   </button>
 
                   <button
-<<<<<<< HEAD
                     onClick={() =>
                       console.log(`favorite toggled for ${editor.title}`)
-=======
-                    onClick={
-                      () =>
-                        console.log(
-                          `favorite toggled for ${editor.title}`
-                        ) /* placeholder */
->>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
                     }
                     aria-label={`Add ${editor.title} to favorites`}
                   >
                     <img
                       src={love}
                       alt="Add to favorites"
-<<<<<<< HEAD
                       className="w-10 h-8 lg:w-12 lg:h-10"
-=======
-                      className="w-[48px] h-[40px]"
->>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
                     />
                   </button>
                 </div>
@@ -472,7 +339,6 @@ const BookList = () => {
           </div>
         </div>
 
-<<<<<<< HEAD
         <div className="flex items-center gap-6 lg:gap-9 mt-8 lg:mt-10 px-8 lg:px-14 xl:px-20">
           <div className="flex-1 border-t border-[#1D2026]" />
           <p className="text-[#1D2026] text-[18px] lg:text-[22px] xl:text-[24px] font-medium whitespace-nowrap">
@@ -482,16 +348,6 @@ const BookList = () => {
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-7 xl:gap-8 mt-6 lg:mt-8 px-8 lg:px-24 xl:px-40">
-=======
-        <div className="flex items-center gap-9 mt-10  px-20">
-          <div className="flex-1 border-t border-[#1D2026]" />
-          <p className="text-[#1D2026] text-[24px] font-medium">Most Search</p>
-          <div className="flex-1 border-t border-[#1D2026]" />
-        </div>
-
-        <div className="flex  gap-8 mt-10 px-40">
-          {/* Reusing some items for "Most Search" — these also add to cart */}
->>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
           {[
             {
               id: "ms-1",
@@ -526,11 +382,7 @@ const BookList = () => {
               price: 6500,
             },
           ].map((item) => (
-<<<<<<< HEAD
             <div key={item.id} className="w-full">
-=======
-            <div key={item.id} className="w-[233px]">
->>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
               <img
                 src={item.image}
                 alt={item.title}
@@ -538,11 +390,7 @@ const BookList = () => {
               />
 
               <div className="flex justify-between mt-3">
-<<<<<<< HEAD
                 <p className="font-medium text-[14px] lg:text-[16px] text-[#1C1C1C]">
-=======
-                <p className="font-medium text-[16px] text-[#1C1C1C]">
->>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
                   {item.title}
                 </p>
 
@@ -550,51 +398,32 @@ const BookList = () => {
                   <img
                     src={star}
                     alt="rating star"
-<<<<<<< HEAD
                     className="w-4 h-4 lg:w-5 lg:h-5"
                   />
                   <p className="font-normal text-[13px] lg:text-[14px] text-[#73768A]">
-=======
-                    className="w-[20px] h-[20px]"
-                  />
-                  <p className="font-normal text-[14px] text-[#73768A]">
->>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
                     {item.rating}
                   </p>
                 </div>
               </div>
 
-<<<<<<< HEAD
               <p className="text-[13px] lg:text-[14px] text-[#73768A] font-normal">
                 {item.instructor}
               </p>
 
               <p className="font-medium text-[20px] lg:text-[24px] mt-1.5">
-=======
-              <p className="text-[14px] text-[#73768A] font-normal">
-                {item.instructor}
-              </p>
-
-              <p className="font-medium text-[24px] mt-1.5">
->>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
                 {formatPrice(item.price)}
               </p>
 
               <div className="flex justify-between mt-3">
                 <button
                   onClick={() => handleAddToCart(item)}
-<<<<<<< HEAD
                   className="bg-[#FF6636] text-white rounded-lg w-[140px] lg:w-[169px] font-medium text-[14px] lg:text-[16px] h-9 lg:h-10"
-=======
-                  className="bg-[#FF6636] text-white rounded-[8px] w-[169px] font-medium text-[16px] h-[40px]"
->>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
                   aria-label={`Add ${item.title} to cart`}
                 >
                   Add To Cart
                 </button>
 
                 <button
-<<<<<<< HEAD
                   onClick={() =>
                     console.log(`favorite toggled for ${item.title}`)
                   }
@@ -605,17 +434,6 @@ const BookList = () => {
                     alt="Add to favorites"
                     className="w-10 lg:w-auto"
                   />
-=======
-                  onClick={
-                    () =>
-                      console.log(
-                        `favorite toggled for ${item.title}`
-                      ) /* placeholder */
-                  }
-                  aria-label={`Add ${item.title} to favorites`}
-                >
-                  <img src={love} alt="Add to favorites" />
->>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
                 </button>
               </div>
             </div>
@@ -623,13 +441,8 @@ const BookList = () => {
         </div>
       </div>
 
-<<<<<<< HEAD
       {/* Mobile alternative — now covers up to 1024px */}
       <div className="min-[1025px]:hidden block">
-=======
-      {/* Mobile alternative */}
-      <div className="md:hidden block">
->>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
         <BookListMob onAddToCart={handleAddToCart} />
       </div>
     </>

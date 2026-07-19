@@ -20,11 +20,7 @@ const NavBar = ({ whiteBg, hideAuthButtons }) => {
   const [isOpen, setIsOpen] = useState();
   const navigate = useNavigate();
 
-<<<<<<< HEAD
   const { query, setQuery } = useSearch();
-=======
-   const { query, setQuery } = useSearch();
->>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
 
   const [rotated, setRotated] = useState(false);
 
@@ -32,11 +28,7 @@ const NavBar = ({ whiteBg, hideAuthButtons }) => {
     <div className="overflow-x-hidden">
       <nav
         className={`md:hidden block flex justify-between p-6  ${
-<<<<<<< HEAD
           whiteBg ? "bg-white" : ""
-=======
-          whiteBg ? "bg-white" : "bg-gradient-to-r from-[#EED4CB] to-[#FFFFFF]"
->>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
         }`}
       >
         <div className="relative">
@@ -70,13 +62,8 @@ const NavBar = ({ whiteBg, hideAuthButtons }) => {
             </button>
 
             <div>
-<<<<<<< HEAD
               <div className="flex mt-14 ml-6 border-b w-[247px] border-[#EAEAEA] pb-3">
                 <div className="flex items-center rounded-tl-xl rounded-bl-xl w-[198px] h-10 border-[0.5px] border-[#FF6636]">
-=======
-              <div className="flex mt-14 ml-6 border-b-[1px] w-[247px] border-[#EAEAEA] pb-3">
-                <div className="flex items-center rounded-tl-[12px] rounded-bl-[12px] w-[198px] h-[40px] border-[0.5px] border-[#FF6636]">
->>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
                   <input
                     type="text"
                     placeholder="Enter book title or Author"
@@ -84,17 +71,8 @@ const NavBar = ({ whiteBg, hideAuthButtons }) => {
                   />
                 </div>
 
-<<<<<<< HEAD
                 <div className="bg-[#FF6636] w-[49px] h-10 rounded-tr-xl rounded-br-xl flex items-center justify-center ">
                   <img src={icon2} alt="" className="w-5 h-5 object-contain" />
-=======
-                <div className="bg-[#FF6636] w-[49px] h-[40px] rounded-tr-[12px] rounded-br-[12px] flex items-center justify-center ">
-                  <img
-                    src={icon2}
-                    alt=""
-                    className="w-[20px] h-[20px] object-contain"
-                  />
->>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
                 </div>
               </div>
 
@@ -103,24 +81,14 @@ const NavBar = ({ whiteBg, hideAuthButtons }) => {
                   aria-expanded={isOpen}
                   aria-haspopup="menu"
                   onClick={() => setIsOpen(!isOpen)}
-<<<<<<< HEAD
                   className="flex border-b w-[247px] border-[#EAEAEA] pb-5 justify-between"
-=======
-                  className="flex border-b-[1px] w-[247px] border-[#EAEAEA] pb-5 justify-between"
->>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
                 >
                   <span className="font-medium">SHOP</span>
 
                   <img
                     src={droparr}
                     alt="dropdown arrow"
-<<<<<<< HEAD
                     className={`w-6 h-6 ${isOpen ? "rotate-180" : "rotate-0"}`}
-=======
-                    className={`w-[24px] h-[24px] ${
-                      isOpen ? "rotate-180" : "rotate-0"
-                    }`}
->>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
                   />
                 </div>
 
@@ -138,7 +106,6 @@ const NavBar = ({ whiteBg, hideAuthButtons }) => {
                   </ul>
                 )}
 
-<<<<<<< HEAD
                 <li className="border-b w-[247px] border-[#EAEAEA] pb-6">
                   BOOK SUBSCRIPTION
                 </li>
@@ -155,24 +122,6 @@ const NavBar = ({ whiteBg, hideAuthButtons }) => {
                   BE OUR VENDOR
                 </li>
                 <li className="border-b w-[247px] border-[#EAEAEA] pb-6">
-=======
-                <li className="border-b-[1px] w-[247px] border-[#EAEAEA] pb-6">
-                  BOOK SUBSCRIPTION
-                </li>
-                <li className="border-b-[1px] w-[247px] border-[#EAEAEA] pb-6">
-                  JOUR OUR BOOK CLUB
-                </li>
-                <li className="border-b-[1px] w-[247px] border-[#EAEAEA] pb-6">
-                  SIGN UP FOR OUR NEWSLETTER
-                </li>
-                <li className="border-b-[1px] w-[247px] border-[#EAEAEA] pb-6 ">
-                  REQUEST FOR A BOOK
-                </li>
-                <li className="border-b-[1px] w-[247px] border-[#EAEAEA] pb-6">
-                  BE OUR VENDOR
-                </li>
-                <li className="border-b-[1px] w-[247px] border-[#EAEAEA] pb-6">
->>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
                   SIGN UP / LOGIN
                 </li>
               </ul>
@@ -193,7 +142,6 @@ const NavBar = ({ whiteBg, hideAuthButtons }) => {
         </div>
       </nav>
 
-<<<<<<< HEAD
       <div className={`w-full ${whiteBg ? "bg-[#F9F9FB]" : ""}`}>
         <div
           className={`md:mx-auto w-full 2xl:mx-auto justify-between xl:px-16 ${
@@ -268,67 +216,6 @@ const NavBar = ({ whiteBg, hideAuthButtons }) => {
             )}
           </nav>
         </div>
-=======
-      <div
-        className={`md:mx-auto border border-[#FFFFFF] w-[1440px] justify-between ${
-          whiteBg
-            ? "bg-[#F9F9FB]"
-            : "bg-gradient-to-r from-[#EED4CB] to-[#FFFFFF] w-[1230px] -ml-80"
-        } ${hideAuthButtons ? "flex justify-center" : ""}`}
-      >
-        {/* inner nav */}
-        <nav
-          className={`md:block hidden p-12 flex flex-row rounded-[12px] transition-all duration-300 ${
-            hideAuthButtons ? "justify-center ml-0" : "ml-6 justify-between"
-          } ${
-            whiteBg
-              ? "bg-white border-[1px] border-white"
-              : "bg-transparent border-none"
-          }`}
-        >
-          {/* Left: logo + search */}
-          <div className="w-[886px] h-[88px] py-[20px] flex items-center gap-8 px-[40px] rounded-[12px] bg-white border border-white">
-            <div className="flex gap-10">
-              <img src={logo} alt="Logo" className="w-[57px] h-[34px] mt-3" />
-
-              <div className="flex items-center h-[48px] px-2 gap-2 w-[505px] rounded-[12px] border border-[#C4C6D3] bg-[#F5F7FA]">
-                <img src={icon} alt="Search" className="ml-2 mt-1" />
-                <input
-                  type="text"
-                  placeholder="Search"
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                  className="w-full bg-transparent border-none outline-none placeholder:text-[16px] font-normal text-[#8C94A3] focus:outline-none focus:ring-0"
-                />
-              </div>
-            </div>
-
-            {/* Right: icons */}
-            <div className="flex gap-6">
-              <img src={face} alt="User" />
-              <img src={love} alt="Favorites" />
-              <img
-                src={cart}
-                alt="Cart"
-                onClick={() => navigate("/cart")}
-                className="cursor-pointer"
-              />
-            </div>
-          </div>
-
-          {/* Right: Auth buttons (only visible on home page) */}
-          {!hideAuthButtons && (
-            <div className="flex justify-end -mt-16 mr-28 gap-4">
-              <button className="text-[16px] font-medium text-white rounded-[8px] w-[132px] text-center bg-[#FF6636] py-[10px] px-[16px] hover:opacity-90 transition">
-                Sign Up
-              </button>
-              <button className="text-[16px] font-medium text-[#FF6636] border border-[#FF6636] w-[132px] rounded-[8px] bg-[#FFEEE8] py-[10px] px-[16px] hover:bg-[#FFD6C4] transition">
-                Login
-              </button>
-            </div>
-          )}
-        </nav>
->>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
       </div>
     </div>
   );

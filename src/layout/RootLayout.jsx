@@ -1,6 +1,5 @@
 import React from "react";
 import NavBar from "../components/NavBar";
-<<<<<<< HEAD
 import { Outlet, useLocation } from "react-router-dom"; // Outlet is a placeholder that renders whatever child route is currently active (more on this below). useLocation gives you access to the current URL info.
 import Footer from "../components/Footer";
 import Herosection from "../components/Herosection";
@@ -31,29 +30,6 @@ const RootLayout = () => {
           whiteBg={isWhiteNav} // first boolean value
           hideAuthButtons={hideAuthButtons} // second boolean value
           isHome={isHome} // Third boolean value
-=======
-import { Outlet, useLocation } from "react-router-dom";
-import Footer from "../components/Footer";
-import Herosection from "../components/Herosection";
-import Cart from "../pages/Cart";
-
-const RootLayout = () => {
-  const location = useLocation();
-  const isHome = location.pathname === "/";
-  const isWhiteNav =
-    location.pathname.startsWith("/checkout") ||
-    location.pathname.startsWith("/cart");
-
-  const hideAuthButtons = isWhiteNav;
-
-  return (
-    <div>
-      <div className="min-h-screen ">
-        <NavBar
-          whiteBg={isWhiteNav}
-          hideAuthButtons={hideAuthButtons}
-          isHome={isHome}
->>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
         />
         {isHome && <Herosection />}
 
