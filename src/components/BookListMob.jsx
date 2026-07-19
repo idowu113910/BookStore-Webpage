@@ -155,6 +155,7 @@ const BookListMob = () => {
 
   return (
     <div>
+<<<<<<< HEAD
       <div className="flex items-center gap-6 sm:gap-8 md:gap-9 mt-[500px] sm:mt-[600px] md:mt-[700px] px-4">
         <div className="flex-1 border-t border-[#1D2026]"></div>
         <p className="text-[20px] sm:text-[22px] md:text-[24px] text-[#1D2026] font-medium whitespace-nowrap">
@@ -165,6 +166,17 @@ const BookListMob = () => {
 
       <div className="px-4 py-6 mt-5">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
+=======
+      <div className="flex items-center gap-9 mt-[700px] px-4">
+        <div className="flex-1 border-t border-[#1D2026] "></div>
+        <p className="text-[#1D2026] text-[24px] font-medium">Best Seller</p>
+        <div className="flex-1 border-t border-[#1D2026]"></div>
+      </div>
+
+      <div className="px-4 py-6 mt-[20px]">
+        {/* Grid: 2 columns on mobile */}
+        <div className="grid grid-cols-2 gap-4">
+>>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
           {seller.map((item) => (
             <div key={item.id} className="w-full">
               <img
@@ -174,6 +186,7 @@ const BookListMob = () => {
               />
 
               <div className="flex justify-between mt-2">
+<<<<<<< HEAD
                 <p className="text-[10.31px] sm:text-[12px] md:text-[13px] font-medium text-[#1C1C1C] truncate pr-1">
                   {item.title}
                 </p>
@@ -185,25 +198,50 @@ const BookListMob = () => {
                     className="w-[15.47px] sm:w-[16px] md:w-[17px] h-[15.47px] sm:h-[16px] md:h-[17px]"
                   />
                   <p className="font-normal text-[9.02px] sm:text-[10px] md:text-[11px] text-[#73768A]">
+=======
+                <p className="text-[10.31px] font-medium text-[#1C1C1C] truncate pr-1">
+                  {item.title}
+                </p>
+
+                <div className="flex gap-1 flex-shrink-0">
+                  <img src={star} alt="" className="w-[15.47px] h-[15.47px]" />
+                  <p className="font-normal text-[9.02px] text-[#73768A]">
+>>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
                     {item.rating}
                   </p>
                 </div>
               </div>
 
+<<<<<<< HEAD
               <p className="text-[#73768A] font-normal text-[9.02px] sm:text-[10px] md:text-[11px] mt-1 truncate">
                 {item.instructor}
               </p>
 
               <p className="font-medium text-[15.47px] sm:text-[17px] md:text-[18px] text-[#1C1C1C] mt-2">
+=======
+              <p className="text-[#73768A] font-normal text-[9.02px] mt-1 truncate">
+                {item.instructor}
+              </p>
+
+              <p className="font-medium text-[15.47px] text-[#1C1C1C] mt-2">
+>>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
                 ₦{item.price.toLocaleString()}
               </p>
 
               <div className="flex justify-between mt-2 gap-2">
+<<<<<<< HEAD
                 <button className="bg-[#FF6636] rounded-[5.16px] text-white text-[10.31px] sm:text-[11px] md:text-[12px] flex-1 py-1.5 sm:py-2">
                   Add To Cart
                 </button>
                 <button className="shrink-0">
                   <img src={love} alt="" className="w-5 h-5 sm:w-6 sm:h-6" />
+=======
+                <button className="bg-[#FF6636] rounded-[5.16px] text-white text-[10.31px] flex-1 py-1.5">
+                  Add To Cart
+                </button>
+                <button className="flex-shrink-0">
+                  <img src={love} alt="" className="w-[20px] h-[20px]" />
+>>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
                 </button>
               </div>
             </div>
@@ -211,16 +249,27 @@ const BookListMob = () => {
         </div>
       </div>
 
+<<<<<<< HEAD
       <div className="flex items-center gap-6 sm:gap-8 md:gap-9 mt-14 px-4">
         <div className="flex-1 border-t border-[#1D2026]"></div>
         <p className="text-[20px] sm:text-[22px] md:text-[24px] text-[#1D2026] font-medium whitespace-nowrap">
           Editor's Pick
         </p>
+=======
+      <div className="flex items-center gap-9 mt-14 px-4">
+        <div className="flex-1 border-t border-[#1D2026] "></div>
+        <p className="text-[#1D2026] text-[24px] font-medium">Editor's Pick</p>
+>>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
         <div className="flex-1 border-t border-[#1D2026]"></div>
       </div>
 
       <div className="px-4 py-6">
+<<<<<<< HEAD
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
+=======
+        {/* Grid: 2 columns on mobile */}
+        <div className="grid grid-cols-2 gap-4">
+>>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
           {edit.map((pick) => (
             <div key={pick.id} className="w-full">
               <img
@@ -230,6 +279,7 @@ const BookListMob = () => {
               />
 
               <div className="flex justify-between mt-2">
+<<<<<<< HEAD
                 <p className="text-[10.31px] sm:text-[12px] md:text-[13px] font-medium text-[#1C1C1C] truncate pr-1">
                   {pick.title}
                 </p>
@@ -241,25 +291,50 @@ const BookListMob = () => {
                     className="w-[15.47px] sm:w-[16px] md:w-[17px] h-[15.47px] sm:h-[16px] md:h-[17px]"
                   />
                   <p className="font-normal text-[9.02px] sm:text-[10px] md:text-[11px] text-[#73768A]">
+=======
+                <p className="text-[10.31px] font-medium text-[#1C1C1C] truncate pr-1">
+                  {pick.title}
+                </p>
+
+                <div className="flex gap-1 flex-shrink-0">
+                  <img src={star} alt="" className="w-[15.47px] h-[15.47px]" />
+                  <p className="font-normal text-[9.02px] text-[#73768A]">
+>>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
                     {pick.rating}
                   </p>
                 </div>
               </div>
 
+<<<<<<< HEAD
               <p className="text-[#73768A] font-normal text-[9.02px] sm:text-[10px] md:text-[11px] mt-1 truncate">
                 {pick.instructor}
               </p>
 
               <p className="font-medium text-[15.47px] sm:text-[17px] md:text-[18px] text-[#1C1C1C] mt-2">
+=======
+              <p className="text-[#73768A] font-normal text-[9.02px] mt-1 truncate">
+                {pick.instructor}
+              </p>
+
+              <p className="font-medium text-[15.47px] text-[#1C1C1C] mt-2">
+>>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
                 ₦{pick.price.toLocaleString()}
               </p>
 
               <div className="flex justify-between mt-2 gap-2">
+<<<<<<< HEAD
                 <button className="bg-[#FF6636] rounded-[5.16px] text-white text-[10.31px] sm:text-[11px] md:text-[12px] flex-1 py-1.5 sm:py-2">
                   Add To Cart
                 </button>
                 <button className="shrink-0">
                   <img src={love} alt="" className="w-5 h-5 sm:w-6 sm:h-6" />
+=======
+                <button className="bg-[#FF6636] rounded-[5.16px] text-white text-[10.31px] flex-1 py-1.5">
+                  Add To Cart
+                </button>
+                <button className="flex-shrink-0">
+                  <img src={love} alt="" className="w-[20px] h-[20px]" />
+>>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
                 </button>
               </div>
             </div>
@@ -267,6 +342,7 @@ const BookListMob = () => {
         </div>
       </div>
 
+<<<<<<< HEAD
       <p className="font-medium text-[20px] sm:text-[22px] md:text-[24px] text-[#1D2026] text-center">
         Most Search
       </p>
@@ -277,10 +353,21 @@ const BookListMob = () => {
 
           <div className="flex justify-between">
             <p className="text-[10.31px] sm:text-[12px] md:text-[13px] font-medium text-[#1C1C1C]">
+=======
+      <p className="font-medium text-[24px] text-[#1D2026]  text-center">Most Search</p>
+
+      <div className="flex gap-1 mx-auto">
+        <div className="w-[150.17px] h-[281.48px] ml-4 mt-6">
+          <img src={ux} alt="" />
+
+          <div className="flex justify-between">
+            <p className="text-[10.31px] font-medium text-[#1C1C1C]">
+>>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
               UX & UI Strategy
             </p>
 
             <div className="flex gap-1">
+<<<<<<< HEAD
               <img
                 src={star}
                 alt=""
@@ -297,10 +384,23 @@ const BookListMob = () => {
           </p>
 
           <p className="font-medium text-[15.47px] sm:text-[17px] md:text-[18px] text-[#1C1C1C] mt-2">
+=======
+              <img src={star} alt="" className="w-[15.47px] h-[15.47px]" />
+              <p className="font-normal text-[9.02px] text-[#73768A]">4.5</p>
+            </div>
+          </div>
+
+          <p className="text-[#73768A] font-normal text-[9.02px]">
+            Pamala B. Deacon
+          </p>
+
+          <p className="font-medium text-[15.47px] text-[#1C1C1C] mt-2">
+>>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
             ₦5,000
           </p>
 
           <div className="flex justify-between mt-2">
+<<<<<<< HEAD
             <button className="bg-[#FF6636] rounded-[5.16px] text-white text-[10.31px] sm:text-[11px] md:text-[12px] w-full max-w-[108.92px]">
               Add To Cart
             </button>
@@ -313,10 +413,24 @@ const BookListMob = () => {
 
           <div className="flex justify-between">
             <p className="text-[10.31px] sm:text-[12px] md:text-[13px] font-medium text-[#1C1C1C]">
+=======
+            <button className="bg-[#FF6636] rounded-[5.16px] text-white text-[10.31px] w-[108.92px]">
+              Add To Cart
+            </button>
+            <img src={love} alt="" />
+          </div>
+        </div>
+        <div className="w-[150.17px] h-[281.48px] ml-4 mt-6">
+          <img src={ux} alt="" />
+
+          <div className="flex justify-between">
+            <p className="text-[10.31px] font-medium text-[#1C1C1C]">
+>>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
               UX & UI Strategy
             </p>
 
             <div className="flex gap-1">
+<<<<<<< HEAD
               <img
                 src={star}
                 alt=""
@@ -333,14 +447,33 @@ const BookListMob = () => {
           </p>
 
           <p className="font-medium text-[15.47px] sm:text-[17px] md:text-[18px] text-[#1C1C1C] mt-2">
+=======
+              <img src={star} alt="" className="w-[15.47px] h-[15.47px]" />
+              <p className="font-normal text-[9.02px] text-[#73768A]">4.5</p>
+            </div>
+          </div>
+
+          <p className="text-[#73768A] font-normal text-[9.02px]">
+            Pamala B. Deacon
+          </p>
+
+          <p className="font-medium text-[15.47px] text-[#1C1C1C] mt-2">
+>>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
             ₦5,000
           </p>
 
           <div className="flex justify-between mt-2">
+<<<<<<< HEAD
             <button className="bg-[#FF6636] rounded-[5.16px] text-white text-[10.31px] sm:text-[11px] md:text-[12px] w-full max-w-[108.92px]">
               Add To Cart
             </button>
             <img src={love} alt="" className="w-5 h-5 sm:w-6 sm:h-6" />
+=======
+            <button className="bg-[#FF6636] rounded-[5.16px] text-white text-[10.31px] w-[108.92px]">
+              Add To Cart
+            </button>
+            <img src={love} alt="" />
+>>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
           </div>
         </div>
       </div>

@@ -48,39 +48,66 @@ const Cart = () => {
     // confirm removal for better UX (optional)
     removeFromCart(id);
   };
+<<<<<<< HEAD
   return (
     <div className="px-4">
+=======
+
+  return (
+    <div className="px-4 ">
+>>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
       <div className="flex p-6">
         <img
           onClick={() => navigate("/")}
           src={arr}
           alt="Back to cart"
+<<<<<<< HEAD
           className="md:w-10 md:h-10 lg:w-12 lg:h-12 md:mt-6 lg:mt-8 md:ml-6 lg:ml-10 xl:ml-14 cursor-pointer"
         />
 
         <h4 className="flex mx-auto font-medium text-[36px] md:text-[44px] lg:text-[52px] xl:text-[57px] pr-8">
+=======
+          className="md:w-[48px] md:h-[48px] md:mt-8 md:ml-14 cursor-pointer"
+        />
+
+        <h4 className="flex mx-auto font-medium text-[36px] md:text-[57px] pr-8">
+>>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
           Cart
         </h4>
       </div>
 
+<<<<<<< HEAD
       <div className="mx-auto border-b border-[#FFDDD1] w-full max-w-[1241px] pb-4 md:px-8 lg:px-24 xl:px-50">
         <div className="flex justify-between max-w-[1241px] mx-auto px-3 md:px-0 mt-6">
           <div className="flex items-center gap-2">
             <TbCircleNumber1Filled className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 xl:w-[42px] xl:h-[42px]" />
             <p className="text-[12px] md:text-[14px] lg:text-[15px] xl:text-[16px] font-medium text-[#1D2026]">
+=======
+      <div className="mx-auto border-b border-[#FFDDD1] w-full max-w-[1241px] pb-4 md:px-50">
+        <div className="flex justify-between max-w-[1241px] mx-auto px-3 md:px-0 mt-6">
+          <div className="flex items-center gap-2">
+            <TbCircleNumber1Filled className="w-[24px] md:w-[42px] md:h-[42px] h-[24px]" />
+            <p className="text-[12px] md:text-[16px] font-medium text-[#1D2026]">
+>>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
               Shopping Cart
             </p>
           </div>
 
           <div className="flex items-center gap-2">
+<<<<<<< HEAD
             <TbCircleNumber2Filled className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 xl:w-[42px] xl:h-[42px] text-[#B1B5C3]" />
             <p className="text-[12px] md:text-[14px] lg:text-[15px] xl:text-[16px] font-medium text-[#B1B5C3]">
+=======
+            <TbCircleNumber2Filled className="w-[24px] md:w-[42px] md:h-[42px] h-[24px] text-[#B1B5C3]" />
+            <p className="text-[12px] md:text-[16px] font-medium text-[#B1B5C3]">
+>>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
               Checkout details
             </p>
           </div>
         </div>
       </div>
 
+<<<<<<< HEAD
       <div className="md:flex md:gap-4 lg:gap-6 xl:gap-8 max-w-[1241px] mx-auto">
         {/* Left column */}
         <section className="border-[0.25px] border-[#6C7275] rounded-xl w-full md:w-[500px] lg:w-[640px] xl:w-[751px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 mx-auto bg-white">
@@ -103,6 +130,26 @@ const Cart = () => {
               <p className="text-[12px] md:text-[14px] lg:text-[15px] xl:text-[16px] font-medium">
                 Subtotal
               </p>
+=======
+      <div className="md:flex md:gap-4 max-w-[1241px] mx-auto">
+        {/* Left column */}
+        <section className="border-[0.25px] border-[#6C7275] rounded-[12px] w-full md:w-[751px] mt-6 md:mt-12 mx-auto bg-white">
+          <div className="flex justify-between items-center border-b border-[#EAEAEA] px-4 py-4">
+            <p className="md:block hidden text-[12px] md:text-[16px] font-medium">
+              Product
+            </p>
+            <p className="md:hidden block text-[12px] md:text-[16px] font-medium">
+              Product & Qty
+            </p>
+
+            <div className="flex gap-9 md:gap-12 items-center">
+              <p className="md:block hidden text-[12px] md:text-[16px] font-medium">
+                Quantity
+              </p>
+
+              <p className="text-[12px] md:text-[16px] font-medium">Price</p>
+              <p className="text-[12px] md:text-[16px] font-medium">Subtotal</p>
+>>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
             </div>
           </div>
 
@@ -117,7 +164,11 @@ const Cart = () => {
               </button>
             </div>
           ) : (
+<<<<<<< HEAD
             <div className="px-4 md:px-5 lg:px-6 py-4">
+=======
+            <div className="px-4 md:px-6 py-4">
+>>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
               {cartItems.map((item, idx) => {
                 const qty = Number(item.quantity || 1);
                 return (
@@ -126,26 +177,45 @@ const Cart = () => {
                     className="flex flex-col md:flex-row md:items-center gap-4 md:gap-0 md:justify-between border-b border-[#EAEAEA] pb-4 pt-4"
                   >
                     {/* Product info */}
+<<<<<<< HEAD
                     <div className="flex items-start gap-3 md:gap-5 lg:gap-6 w-full md:w-[60%]">
                       <img
                         src={item.image || (idx % 2 === 0 ? ux3 : crime)}
                         alt={item.name || "Cart item"}
                         className="w-[60px] md:w-[80px] lg:w-[90px] xl:w-[100px] h-[60px] md:h-[96px] lg:h-[108px] xl:h-[120px] object-cover rounded"
+=======
+                    <div className="flex items-start gap-3 md:gap-6 w-full md:w-[60%]">
+                      <img
+                        src={item.image || (idx % 2 === 0 ? ux3 : crime)}
+                        alt={item.name || "Cart item"}
+                        className="w-[60px] md:w-[100px] h-[60px] md:h-[120px] object-cover rounded"
+>>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
                       />
 
                       <div className="flex-1">
                         <div className="break-all">
+<<<<<<< HEAD
                           <p className="text-[10px] md:text-[13px] lg:text-[13.5px] xl:text-[14px] font-medium text-[#1C1C1C]">
                             {item.name}
                           </p>
                           <p className="text-[8px] md:text-[11px] lg:text-[11.5px] xl:text-[12px] text-[#73768A] mt-1">
+=======
+                          <p className="text-[10px] md:text-[14px] font-medium text-[#1C1C1C]">
+                            {item.name}
+                          </p>
+                          <p className="text-[8px] md:text-[12px] text-[#73768A] mt-1">
+>>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
                             {item.author || "Author Name"}
                           </p>
                         </div>
 
                         <div className="hidden md:block mt-2">
                           <img src={stars} alt="rating stars" />
+<<<<<<< HEAD
                           <p className="text-[11px] lg:text-[11.5px] xl:text-[12px] text-[#737373] mt-1">
+=======
+                          <p className="text-[12px] text-[#737373] mt-1">
+>>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
                             5430 Reviews
                           </p>
                         </div>
@@ -164,9 +234,15 @@ const Cart = () => {
                     </div>
 
                     {/* Controls + price */}
+<<<<<<< HEAD
                     <div className="flex md:flex-row items-center justify-between w-full md:w-[40%] md:pl-6 lg:pl-7 xl:pl-8">
                       {/* Slimmer quantity control */}
                       <div className="flex items-center border border-[#73768A] rounded overflow-hidden w-[70px] h-5 md:h-[28px] lg:h-[29px] xl:h-[30px] md:w-[76px] lg:w-[78px] xl:w-20">
+=======
+                    <div className="flex md:flex-row items-center justify-between w-full md:w-[40%] md:pl-8">
+                      {/* Slimmer quantity control */}
+                      <div className="flex items-center  border border-[#73768A] rounded overflow-hidden w-[70px] h-[20px] md:h-[30px] md:w-[80px]">
+>>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
                         <button
                           onClick={() => handleDecrease(item)}
                           aria-label={`Decrease quantity for ${item.name}`}
@@ -176,8 +252,13 @@ const Cart = () => {
                           <MdRemove className="w-3 h-3 pl-1" />
                         </button>
 
+<<<<<<< HEAD
                         <div className="px-2 py-1 pl-1 md:pl-2 pb-2 min-w-8 text-center">
                           <span className="text-[10px] md:text-[13px] lg:text-[13.5px] xl:text-[14px]">
+=======
+                        <div className="px-2 py-1 pl-1 md:pl-2 pb-2 min-w-[32px] text-center">
+                          <span className="text-[10px] md:text-[14px]">
+>>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
                             {qty}
                           </span>
                         </div>
@@ -192,10 +273,17 @@ const Cart = () => {
                       </div>
 
                       <div className="flex justify-between gap-8">
+<<<<<<< HEAD
                         <p className="text-[12px] md:text-[14px] lg:text-[15px] xl:text-[16px] font-medium md:pl-6 lg:pl-7 xl:pl-8">
                           {formatCurrency(item.price)}
                         </p>
                         <p className="text-[12px] md:text-[14px] lg:text-[15px] xl:text-[16px] font-medium">
+=======
+                        <p className="text-[12px] md:text-[16px] font-medium md:pl-8">
+                          {formatCurrency(item.price)}
+                        </p>
+                        <p className="text-[12px] md:text-[16px] font-medium ">
+>>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
                           {formatCurrency(item.price * qty)}
                         </p>
                       </div>
@@ -208,8 +296,13 @@ const Cart = () => {
         </section>
 
         {/* Right column: summary */}
+<<<<<<< HEAD
         <aside className="border-[0.4px] border-[#6C7275] rounded-2xl w-full md:w-[280px] lg:w-[340px] xl:w-[401px] p-6 md:p-7 lg:p-7.5 xl:p-8 mt-8 md:mt-9 lg:mt-10 xl:mt-11 mx-auto">
           <h2 className="text-[16px] md:text-[18px] lg:text-[19px] xl:text-[20px] font-medium">
+=======
+        <aside className="border-[0.4px] border-[#6C7275] rounded-[16px] w-full md:w-[401px] p-6 md:p-8 mt-8 md:mt-11 mx-auto">
+          <h2 className="text-[16px] md:text-[20px] font-medium">
+>>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
             Cart Summary
           </h2>
 
@@ -217,7 +310,11 @@ const Cart = () => {
             <fieldset>
               <legend className="sr-only">Shipping options</legend>
 
+<<<<<<< HEAD
               <label className="flex items-center gap-3 border-[0.24px] w-full h-12 py-2 px-3 rounded mb-3">
+=======
+              <label className="flex items-center gap-3 border-[0.24px] w-full h-[48px] py-2 px-3 rounded mb-3">
+>>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
                 <input
                   type="radio"
                   name="shipping"
@@ -229,7 +326,11 @@ const Cart = () => {
                 <span className="text-[14px]">Pick Up</span>
               </label>
 
+<<<<<<< HEAD
               <label className="flex items-center gap-3 border-[0.24px] w-full h-12 py-2 px-3 rounded">
+=======
+              <label className="flex items-center gap-3 border-[0.24px] w-full h-[48px] py-2 px-3 rounded">
+>>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
                 <input
                   type="radio"
                   name="shipping"
@@ -276,4 +377,8 @@ const Cart = () => {
     </div>
   );
 };
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9bb11279b061f67edd6d0286525de2b644a13f37
 export default Cart;
