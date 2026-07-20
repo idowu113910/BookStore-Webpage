@@ -22,8 +22,8 @@ const RootLayout = () => {
       <div
         className={
           isCart || isCheckout
-            ? "bg-white min-h-dvh"
-            : "bg-linear-to-r from-[#EED4CB] to-[#FFFFFF] min-h-dvh"
+            ? "bg-white"
+            : "bg-linear-to-r from-[#EED4CB] to-[#FFFFFF]"
         }
       >
         <NavBar
