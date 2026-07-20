@@ -36,6 +36,8 @@ const Checkout = () => {
   const [showOrderPopup, setShowOrderPopup] = useState(false);
   const [rememberCard, setRememberCard] = useState(false);
 
+  const [isProcessing, setIsProcessing] = useState(false);
+
   const [form, setForm] = useState({
     lastName: "",
     firstName: "",
@@ -76,11 +78,24 @@ const Checkout = () => {
 
   const handleCompletePayment = () => {
     if (!isFormValid) return;
-    setShowOrderPopup(true);
+    setIsProcessing(true);
+
+    setTimeout(() => {
+      setIsProcessing(false);
+      setShowOrderPopup(true);
+    }, 1500);
   };
 
   return (
     <div className="w-full max-w-[1920px] mx-auto px-3 sm:px-6 lg:px-10 xl:px-16 relative">
+      {isProcessing && (
+        <div className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center px-4">
+          <div className="bg-white rounded-2xl w-full max-w-[320px] p-8 sm:p-10 flex items-center justify-center">
+            <span className="w-12 h-12 border-4 border-[#FF6636] border-t-transparent rounded-full animate-spin" />
+          </div>
+        </div>
+      )}
+
       {showOrderPopup && (
         <div className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center px-4">
           <div className="bg-white rounded-2xl w-full max-w-[320px] p-6 sm:p-8 text-center shadow-xl">
@@ -502,9 +517,9 @@ const Checkout = () => {
 
               <button
                 onClick={handleCompletePayment}
-                disabled={!isFormValid}
+                disabled={!isFormValid || isProcessing}
                 className={`w-full h-11 sm:h-12 xl:h-[52px] py-2 xl:py-2.5 px-3 xl:px-4 rounded-lg mt-4 sm:mt-6 xl:mt-8 text-[14px] sm:text-[15px] xl:text-[16px] font-medium text-white ${
-                  isFormValid
+                  isFormValid && !isProcessing
                     ? "bg-[#FF6636]"
                     : "bg-[#FF6636] opacity-50 cursor-not-allowed"
                 }`}
@@ -518,5 +533,4 @@ const Checkout = () => {
     </div>
   );
 };
-
 export default Checkout;
