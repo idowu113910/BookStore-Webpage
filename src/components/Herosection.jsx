@@ -68,7 +68,7 @@ xl:w-[574px] px-8 sm:px-6 md:px-5 mt-2 sm:mt-3.5 md:mt-2.5 2xl:-ml-5 xl:-ml-4 md
         </button>
 
         <div className="mt-10 flex-1 min-w-0">
-          <img src={book} alt="" className="md:hidden block mx-auto" />
+          <img src={book} alt="" className="md:hidden block mx-auto mt-8" />
 
           <img
             src={book2}

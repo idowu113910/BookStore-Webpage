@@ -17,8 +17,46 @@ import storm from "../assets/martin mobile.png";
 import finish from "../assets/finish what you start mobile.png";
 import never from "../assets/neverwhere mobile.png";
 import demon from "../assets/demons mobile.png";
+import { useNavigate } from "react-router-dom";
+import { useCartStore } from "../store/CartStore";
 
 const BookListMob = () => {
+  const navigate = useNavigate();
+  const addToCart = useCartStore((state) => state.addToCart);
+
+  const handleAddToCart = (item) => {
+    if (!item || !item.id) return;
+    const cartItem = {
+      id: item.id,
+      name: item.title || item.name || "Untitled",
+      price: Number(item.price || 0),
+      image: item.image,
+      quantity: 1,
+      author: item.instructor || item.author || "",
+    };
+    addToCart(cartItem);
+    navigate("/cart");
+  };
+
+  const products = [
+    {
+      id: "prod-1",
+      image: ux,
+      title: "UX & UI Strategy",
+      rating: 4.5,
+      author: "Pamala B. Deacon",
+      price: 5000,
+    },
+    {
+      id: "prod-2",
+      image: ux,
+      title: "UX & UI Strategy",
+      rating: 4.5,
+      author: "Pamala B. Deacon",
+      price: 5000,
+    },
+  ];
+
   const seller = [
     {
       id: 1,
@@ -154,7 +192,7 @@ const BookListMob = () => {
   ];
 
   return (
-    <div>
+    <div className="md:hidden mt-220">
       <div className="flex items-center gap-6 sm:gap-8 md:gap-9 mt-[500px] sm:mt-[600px] md:mt-[700px] px-4">
         <div className="flex-1 border-t border-[#1D2026]"></div>
         <p className="text-[20px] sm:text-[22px] md:text-[24px] text-[#1D2026] font-medium whitespace-nowrap">
@@ -199,10 +237,21 @@ const BookListMob = () => {
               </p>
 
               <div className="flex justify-between mt-2 gap-2">
-                <button className="bg-[#FF6636] rounded-[5.16px] text-white text-[10.31px] sm:text-[11px] md:text-[12px] flex-1 py-1.5 sm:py-2">
+                <button
+                  onClick={() => handleAddToCart(item)}
+                  className="bg-[#FF6636] rounded-[5.16px] text-white text-[10.31px] sm:text-[11px] md:text-[12px] flex-1 py-1.5 sm:py-2"
+                  aria-label={`Add ${item.title} to cart`}
+                >
                   Add To Cart
                 </button>
-                <button className="shrink-0">
+                <button
+                  onClick={() =>
+                    console.log(`favorite toggled for ${item.title}`)
+                  }
+                  aria-label={`Add ${item.title} to favorites`}
+                  className="shrink-0"
+                  className="shrink-0"
+                >
                   <img src={love} alt="" className="w-5 h-5 sm:w-6 sm:h-6" />
                 </button>
               </div>
@@ -255,10 +304,20 @@ const BookListMob = () => {
               </p>
 
               <div className="flex justify-between mt-2 gap-2">
-                <button className="bg-[#FF6636] rounded-[5.16px] text-white text-[10.31px] sm:text-[11px] md:text-[12px] flex-1 py-1.5 sm:py-2">
+                <button
+                  onClick={() => handleAddToCart(pick)}
+                  className="bg-[#FF6636] rounded-[5.16px] text-white text-[10.31px] sm:text-[11px] md:text-[12px] flex-1 py-1.5 sm:py-2"
+                  aria-label={`Add ${pick.title} to cart`}
+                >
                   Add To Cart
                 </button>
-                <button className="shrink-0">
+                <button
+                  onClick={() =>
+                    console.log(`favorite toggled for ${pick.title}`)
+                  }
+                  aria-label={`Add ${pick.title} to favorites`}
+                  className="shrink-0"
+                >
                   <img src={love} alt="" className="w-5 h-5 sm:w-6 sm:h-6" />
                 </button>
               </div>
@@ -272,77 +331,60 @@ const BookListMob = () => {
       </p>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 px-4 mt-6">
-        <div className="w-full">
-          <img src={ux} alt="" className="w-full h-auto" />
+        {products.map((product) => (
+          <div key={product.id} className="w-full">
+            <img
+              src={product.image}
+              alt={product.title}
+              className="w-full h-auto"
+            />
 
-          <div className="flex justify-between">
-            <p className="text-[10.31px] sm:text-[12px] md:text-[13px] font-medium text-[#1C1C1C]">
-              UX & UI Strategy
+            <div className="flex justify-between">
+              <p className="text-[10.31px] sm:text-[12px] md:text-[13px] font-medium text-[#1C1C1C]">
+                {product.title}
+              </p>
+
+              <div className="flex gap-1">
+                <img
+                  src={star}
+                  alt=""
+                  className="w-[15.47px] sm:w-[16px] md:w-[17px] h-[15.47px] sm:h-[16px] md:h-[17px]"
+                />
+                <p className="font-normal text-[9.02px] sm:text-[10px] md:text-[11px] text-[#73768A]">
+                  {product.rating}
+                </p>
+              </div>
+            </div>
+
+            <p className="text-[#73768A] font-normal text-[9.02px] sm:text-[10px] md:text-[11px]">
+              {product.author}
             </p>
 
-            <div className="flex gap-1">
-              <img
-                src={star}
-                alt=""
-                className="w-[15.47px] sm:w-[16px] md:w-[17px] h-[15.47px] sm:h-[16px] md:h-[17px]"
-              />
-              <p className="font-normal text-[9.02px] sm:text-[10px] md:text-[11px] text-[#73768A]">
-                4.5
-              </p>
-            </div>
-          </div>
-
-          <p className="text-[#73768A] font-normal text-[9.02px] sm:text-[10px] md:text-[11px]">
-            Pamala B. Deacon
-          </p>
-
-          <p className="font-medium text-[15.47px] sm:text-[17px] md:text-[18px] text-[#1C1C1C] mt-2">
-            ₦5,000
-          </p>
-
-          <div className="flex justify-between mt-2">
-            <button className="bg-[#FF6636] rounded-[5.16px] text-white text-[10.31px] sm:text-[11px] md:text-[12px] w-full max-w-[108.92px]">
-              Add To Cart
-            </button>
-            <img src={love} alt="" className="w-5 h-5 sm:w-6 sm:h-6" />
-          </div>
-        </div>
-
-        <div className="w-full">
-          <img src={ux} alt="" className="w-full h-auto" />
-
-          <div className="flex justify-between">
-            <p className="text-[10.31px] sm:text-[12px] md:text-[13px] font-medium text-[#1C1C1C]">
-              UX & UI Strategy
+            <p className="font-medium text-[15.47px] sm:text-[17px] md:text-[18px] text-[#1C1C1C] mt-2">
+              ₦{product.price.toLocaleString()}
             </p>
 
-            <div className="flex gap-1">
+            <div className="flex justify-between mt-2">
+              <button
+                onClick={() => handleAddToCart(product)}
+                className="bg-[#FF6636] rounded-[5.16px] text-white text-[10.31px] sm:text-[11px] md:text-[12px] w-full max-w-[108.92px]"
+                aria-label={`Add ${product.title} to cart`}
+              >
+                Add To Cart
+              </button>
               <img
-                src={star}
+                onClick={() =>
+                  console.log(`favorite toggled for ${product.title}`)
+                }
+                aria-label={`Add ${product.title} to favorites`}
+                className="shrink-0"
+                src={love}
                 alt=""
-                className="w-[15.47px] sm:w-[16px] md:w-[17px] h-[15.47px] sm:h-[16px] md:h-[17px]"
+                className="w-5 h-5 sm:w-6 sm:h-6"
               />
-              <p className="font-normal text-[9.02px] sm:text-[10px] md:text-[11px] text-[#73768A]">
-                4.5
-              </p>
             </div>
           </div>
-
-          <p className="text-[#73768A] font-normal text-[9.02px] sm:text-[10px] md:text-[11px]">
-            Pamala B. Deacon
-          </p>
-
-          <p className="font-medium text-[15.47px] sm:text-[17px] md:text-[18px] text-[#1C1C1C] mt-2">
-            ₦5,000
-          </p>
-
-          <div className="flex justify-between mt-2">
-            <button className="bg-[#FF6636] rounded-[5.16px] text-white text-[10.31px] sm:text-[11px] md:text-[12px] w-full max-w-[108.92px]">
-              Add To Cart
-            </button>
-            <img src={love} alt="" className="w-5 h-5 sm:w-6 sm:h-6" />
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

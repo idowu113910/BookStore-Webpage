@@ -200,7 +200,7 @@ const BookList = () => {
 
   return (
     <>
-      <div className="hidden min-[1025px]:block mt-32 lg:mt-40 xl:mt-48 md:-mt-900">
+      <div className="hidden min-[1025px]:block mt-32 lg:mt-40 xl:mt-100 md:-mt-900">
         <div className="flex items-center gap-6 lg:gap-9 mt-10  lg:mt-14 px-8 lg:px-14 xl:px-20">
           <div className="flex-1 border-t border-[#1D2026]" />
           <p className="text-[#1D2026] text-[18px] lg:text-[22px] xl:text-[24px] font-medium whitespace-nowrap">
@@ -209,14 +209,14 @@ const BookList = () => {
           <div className="flex-1 border-t border-[#1D2026]" />
         </div>
 
-        <div className="w-full max-w-[900px] lg:max-w-[1000px] xl:max-w-[1112px] h-auto mx-auto mt-6 lg:mt-8 px-4">
+        <div className="w-full max-w-[900px] lg:max-w-[1000px] xl:max-w-[1112px] h-auto mx-auto mt-6 lg:mt-8 px-4 xl:mt-20">
           <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-7 xl:gap-8">
             {filteredBooks.map((book) => (
               <article key={book.id} className="w-full">
                 <img
                   src={book.image}
                   alt={book.title}
-                  className="w-full aspect-[233/284] object-cover"
+                  className="w-full aspect-233/284 object-cover"
                 />
 
                 <div className="flex justify-between mt-3 w-full">
@@ -285,7 +285,7 @@ const BookList = () => {
                 <img
                   src={editor.image}
                   alt={editor.title}
-                  className="w-full aspect-[233/284] object-cover"
+                  className="w-full aspect-233/284 object-cover"
                 />
 
                 <div className="flex justify-between mt-3 w-full">
