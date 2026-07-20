@@ -18,7 +18,7 @@ const RootLayout = () => {
   const isCheckout = location.pathname.startsWith("/checkout");
 
   return (
-    <div className="min-h-screen ">
+    <div className="min-h-screen">
       <div
         className={
           isCart || isCheckout
@@ -27,18 +27,18 @@ const RootLayout = () => {
         }
       >
         <NavBar
-          whiteBg={isWhiteNav} // first boolean value
-          hideAuthButtons={hideAuthButtons} // second boolean value
-          isHome={isHome} // Third boolean value
+          whiteBg={isWhiteNav}
+          hideAuthButtons={hideAuthButtons}
+          isHome={isHome}
         />
         {isHome && <Herosection />}
-
-        {/* Page content */}
-        <main>
-          <Outlet />
-          <Footer />
-        </main>
       </div>
+
+      {/* Page content — outside the gradient now */}
+      <main>
+        <Outlet />
+        <Footer />
+      </main>
     </div>
   );
 };
