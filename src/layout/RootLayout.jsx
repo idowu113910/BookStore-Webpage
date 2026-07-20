@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import Herosection from "../components/Herosection";
 import Cart from "../pages/Cart";
 import checkout from "../pages/Checkout";
+import ScrollToTop from "../components/ScrollToTop";
 
 const RootLayout = () => {
   const location = useLocation(); //  location is just the variable name you're choosing to store that returned object in, so you can use it afterward. it can be changed to anything
@@ -19,6 +20,7 @@ const RootLayout = () => {
 
   return (
     <div className="min-h-screen">
+      <ScrollToTop />
       <div
         className={
           isCart || isCheckout
