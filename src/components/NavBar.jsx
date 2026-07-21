@@ -168,7 +168,7 @@ const NavBar = ({ whiteBg, hideAuthButtons }) => {
                 <img
                   src={logo}
                   alt="Logo"
-                  className="w-[48px] h-[28px] lg:w-[57px] lg:h-[34px]"
+                  className="w-12 h-7 lg:w-[57px] lg:h-[34px]"
                 />
 
                 <div className="flex items-center h-11 lg:h-12 px-2 gap-2 w-full max-w-[505px] xl:max-w-[537.5px] rounded-xl border border-[#C4C6D3] bg-[#F5F7FA]">

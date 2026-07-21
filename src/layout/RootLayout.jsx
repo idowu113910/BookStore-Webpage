@@ -6,6 +6,7 @@ import Herosection from "../components/Herosection";
 import Cart from "../pages/Cart";
 import checkout from "../pages/Checkout";
 import ScrollToTop from "../components/ScrollToTop";
+import { Helmet } from "react-helmet-async"; // Helmet lets you set the page's <title>, <meta> description, and other <head> tags directly from inside your React component, instead of them being stuck as one fixed value in index.html
 
 const RootLayout = () => {
   const location = useLocation(); //  location is just the variable name you're choosing to store that returned object in, so you can use it afterward. it can be changed to anything
@@ -20,6 +21,15 @@ const RootLayout = () => {
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+        {/* This sets the DEFAULT title/description for every page on the site. Any page component that renders its own <Helmet> (like Cart.jsx or Checkout.jsx) will override these values just for that page — since RootLayout stays mounted while Outlet swaps pages underneath it, this is the fallback when a page doesn't set its own. */}
+        <title>BookShop</title>
+        <meta
+          name="description"
+          content="Your one-stop shop for books online."
+        />
+        <meta property="og:site_name" content="BookShop" />
+      </Helmet>
       <ScrollToTop />
       <div
         className={

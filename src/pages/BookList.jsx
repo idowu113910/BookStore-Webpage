@@ -23,6 +23,7 @@ import BookListMob from "../components/BookListMob";
 import { useNavigate } from "react-router-dom";
 import { useCartStore } from "../store/CartStore";
 import { useSearch } from "../SearchContext";
+import { Helmet } from "react-helmet-async"; // Helmet lets this page set its own <title> and <meta> description, overriding RootLayout's defaults specifically for the book listing page
 
 const BookList = () => {
   const navigate = useNavigate();
@@ -200,6 +201,15 @@ const BookList = () => {
 
   return (
     <>
+      <Helmet>
+        {/* Overrides RootLayout's default title/description just for this page, since this is the main book-browsing page users land on and search for */}
+        <title>Shop Books Online | BookShop</title>
+        <meta
+          name="description"
+          content="Browse bestsellers, fiction, and editor's picks at BookShop."
+        />
+      </Helmet>
+
       <div className="hidden min-[1025px]:block mt-32 lg:mt-40 xl:mt-100 md:-mt-900">
         <div className="flex items-center gap-6 lg:gap-9 mt-10  lg:mt-14 px-8 lg:px-14 xl:px-20">
           <div className="flex-1 border-t border-[#1D2026]" />

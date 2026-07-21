@@ -220,7 +220,7 @@ const BookListMob = () => {
                   <img
                     src={star}
                     alt=""
-                    className="w-[15.47px] sm:w-[16px] md:w-[17px] h-[15.47px] sm:h-[16px] md:h-[17px]"
+                    className="w-[15.47px] sm:w-4 md:w-[17px] h-[15.47px] sm:h-4 md:h-[17px]"
                   />
                   <p className="font-normal text-[9.02px] sm:text-[10px] md:text-[11px] text-[#73768A]">
                     {item.rating}
@@ -287,7 +287,7 @@ const BookListMob = () => {
                   <img
                     src={star}
                     alt=""
-                    className="w-[15.47px] sm:w-[16px] md:w-[17px] h-[15.47px] sm:h-[16px] md:h-[17px]"
+                    className="w-[15.47px] sm:w-4 md:w-[17px] h-[15.47px] sm:h-4 md:h-[17px]"
                   />
                   <p className="font-normal text-[9.02px] sm:text-[10px] md:text-[11px] text-[#73768A]">
                     {pick.rating}
@@ -348,7 +348,7 @@ const BookListMob = () => {
                 <img
                   src={star}
                   alt=""
-                  className="w-[15.47px] sm:w-[16px] md:w-[17px] h-[15.47px] sm:h-[16px] md:h-[17px]"
+                  className="w-[15.47px] sm:w-4 md:w-[17px] h-[15.47px] sm:h-4 md:h-[17px]"
                 />
                 <p className="font-normal text-[9.02px] sm:text-[10px] md:text-[11px] text-[#73768A]">
                   {product.rating}
