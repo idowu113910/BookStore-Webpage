@@ -1,0 +1,8 @@
+User-agent: * 
+# Applies these rules to ALL crawlers (Googlebot, Bingbot, etc.) — the * is a wildcard meaning "every bot", not just one specific search engine
+
+Allow: /
+# Explicitly allows crawling of everything on the site, starting from the root ("/") — without this, some crawlers may be cautious about what they're permitted to index
+
+Sitemap: https://book-store-webpage.vercel.app/sitemap.xml
+# Points crawlers directly to your sitemap file, so they can discover every page listed there without having to guess URLs or wait for you to manually submit it everywhere

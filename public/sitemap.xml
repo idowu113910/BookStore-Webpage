@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://book-store-webpage.vercel.app/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority> <!-- 1.0 = highest priority (scale is 0.0 to 1.0). Homepage gets the max since it's the main entry point you want Google to rank and crawl most often -->
+  </url>
+  <url>
+    <loc>https://book-store-webpage.vercel.app/cart</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority> <!-- 0.5 = medium priority, relative to the homepage's 1.0. Cart is a transactional/user-specific page, not content you want ranking in search results, so it's intentionally lower -->
+  </url>
+  <url>
+    <loc>https://book-store-webpage.vercel.app/checkout</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority> <!-- 0.5 = same reasoning as cart above: checkout is transactional, not a page searchers should land on from Google, so it doesn't need to compete with the homepage for crawl priority -->
+  </url>
+</urlset>
