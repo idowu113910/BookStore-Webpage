@@ -21,6 +21,7 @@ import { useCartStore } from "../store/CartStore"; // <- important
 import confirm from "../assets/confirmed.svg";
 import { IoCheckbox } from "react-icons/io5";
 import { MdCheckBoxOutlineBlank } from "react-icons/md";
+import { Helmet } from "react-helmet-async"; // Helmet lets this page set its own <title> and <meta> description, overriding RootLayout's defaults specifically for the checkout page
 
 const Checkout = () => {
   const navigate = useNavigate();
@@ -88,6 +89,16 @@ const Checkout = () => {
 
   return (
     <div className="w-full max-w-[1920px] mx-auto px-3 sm:px-6 lg:px-10 xl:px-16 relative">
+      <Helmet>
+        {/* Overrides RootLayout's default title/description just for this page, since checkout is a distinct, action-focused page from the homepage or cart */}
+        <title>Checkout | BookShop</title>
+        <meta
+          name="description"
+          content="Complete your book purchase securely at BookShop."
+        />
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
+
       {isProcessing && (
         <div className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center px-4">
           <div className="bg-white rounded-2xl w-full max-w-[320px] p-8 sm:p-10 flex items-center justify-center">

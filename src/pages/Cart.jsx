@@ -11,6 +11,7 @@ import { MdOutlineCircle } from "react-icons/md";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { useCartStore } from "../store/CartStore";
+import { Helmet } from "react-helmet-async"; // Helmet lets this page set its own <title> and <meta> description, overriding RootLayout's defaults specifically for the cart page
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -50,6 +51,16 @@ const Cart = () => {
   };
   return (
     <div className="px-4">
+      <Helmet>
+        {/* Overrides RootLayout's default title/description just for this page, since a customer's cart is a distinct page from the homepage */}
+        <title>Your Cart | BookShop</title>
+        <meta
+          name="description"
+          content="Review the books in your cart before checkout at BookShop."
+        />
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
+
       <div className="flex p-6">
         <img
           onClick={() => navigate("/")}
@@ -130,7 +141,7 @@ const Cart = () => {
                       <img
                         src={item.image || (idx % 2 === 0 ? ux3 : crime)}
                         alt={item.name || "Cart item"}
-                        className="w-[60px] md:w-[80px] lg:w-[90px] xl:w-[100px] h-[60px] md:h-[96px] lg:h-[108px] xl:h-[120px] object-cover rounded"
+                        className="w-[60px] md:w-20 lg:w-[90px] xl:w-[100px] h-[60px] md:h-24 lg:h-[108px] xl:h-[120px] object-cover rounded"
                       />
 
                       <div className="flex-1">
@@ -166,7 +177,7 @@ const Cart = () => {
                     {/* Controls + price */}
                     <div className="flex md:flex-row items-center justify-between w-full md:w-[40%] md:pl-6 lg:pl-7 xl:pl-8">
                       {/* Slimmer quantity control */}
-                      <div className="flex items-center border border-[#73768A] rounded overflow-hidden w-[70px] h-5 md:h-[28px] lg:h-[29px] xl:h-[30px] md:w-[76px] lg:w-[78px] xl:w-20">
+                      <div className="flex items-center border border-[#73768A] rounded overflow-hidden w-[70px] h-5 md:h-7 lg:h-[29px] xl:h-[30px] md:w-[76px] lg:w-[78px] xl:w-20">
                         <button
                           onClick={() => handleDecrease(item)}
                           aria-label={`Decrease quantity for ${item.name}`}
